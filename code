@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoleplayAI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>RoleplayAI</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#character-creation">Character Creation</a>
+            <a href="#ai-selection">AI Selection</a>
+            <a href="#roleplay-hub">Roleplay Hub</a>
+            <a href="#community">Community</a>
+            <a href="#settings">Settings</a>
+        </nav>
+    </header>
+    <main id="home">
+        <section id="character-creation">
+            <h2>Create Your Character</h2>
+            <form id="characterForm">
+                <input type="text" id="characterName" placeholder="Character Name" required>
+                <textarea id="characterBackstory" placeholder="Character Backstory" required></textarea>
+                <button type="submit">Create Character</button>
+            </form>
+        </section>
+        <section id="ai-selection">
+            <h2>Select an AI</h2>
+            <div id="aiList">
+                <!-- AI Characters will be listed here -->
+            </div>
+        </section>
+        <section id="roleplay-hub">
+            <h2>Roleplay Hub</h2>
+            <div id="chat">
+                <!-- Chat interface will be here -->
+            </div>
+            <form id="chatForm">
+                <input type="text" id="chatInput" placeholder="Type your message" required>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 1rem;
+    text-decoration: none;
+}
+
+main {
+    padding: 2rem;
+}
+
+form {
+    margin-top: 1rem;
+}
+
+#chat {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    height: 200px;
+    overflow-y: scroll;
+    background-color: white;
+}
+
+#chatForm {
+    display: flex;
+}
+
+#chatInput {
+    flex: 1;
+    padding: 0.5rem;
+}
+
+#chat button {
+    padding: 0.5rem;
+}
+document.addEventListener('DOMContentLoaded', () => {
+    // Character Creation
+    const characterForm = document.getElementById('characterForm');
+    characterForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const name = document.getElementById('characterName').value;
+        const backstory = document.getElementById('characterBackstory').value;
+        alert(`Character Created: ${name}\nBackstory: ${backstory}`);
+    });
+
+    // AI Selection
+    const aiList = document.getElementById('aiList');
+    const aiCharacters = [
+        { name: 'AI 1', description: 'Friendly AI' },
+        { name: 'AI 2', description: 'Mysterious AI' },
+        { name: 'AI 3', description: 'Adventurous AI' },
+    ];
+
+    aiCharacters.forEach((ai) =>
